@@ -20,8 +20,9 @@ st.write(f"""
 ### 過去**{days}日間**のGAFAの株価
 """)
 
+
 @st.cache
-def get_date(days, tickers):
+def get_data(days, tickers):
     df = pd.DataFrame()
     for company in tickers.keys():
         tkr = yf.Ticker(tickers[company])
@@ -51,7 +52,7 @@ try:
         'amazon': 'AMZN'
     }
 
-    df = get_date(days, tickers)
+    df = get_data(days, tickers)
 
     companies = st.multiselect(
         '会社名を選択してください。',
