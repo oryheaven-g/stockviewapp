@@ -68,16 +68,16 @@ try:
             columns={'value': 'Stock Prices(USD)'}
         )
 
-    chart = (
-        alt.Chart(data)
-        .mark_line(opacity=0.8, clip=True)
-        .encode(
-            x="Date:T",
-            y=alt.Y("Stock Prices(USD):Q", stack=None, scale=alt.Scale(domain=[ymin, ymax])),
-            color='Name:N'
+        chart = (
+            alt.Chart(data)
+            .mark_line(opacity=0.8, clip=True)
+            .encode(
+                x="Date:T",
+                y=alt.Y("Stock Prices(USD):Q", stack=None, scale=alt.Scale(domain=[ymin, ymax])),
+                color='Name:N'
+            )
         )
-    )
-    st.altair_chart(chart, use_container_width=True)
+        st.altair_chart(chart, use_container_width=True)
 except:
     st.error(
         "エラーが起きているようです。"
